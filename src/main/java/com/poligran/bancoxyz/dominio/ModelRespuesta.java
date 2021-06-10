@@ -15,10 +15,10 @@ public class ModelRespuesta {
 	private String estado;
 	private String mensaje;
 	private Object data;
-	private final LocalDateTime fecha;
+	private final LocalDateTime fechaTransaccion;
 
 	public ModelRespuesta() {
-		this.fecha = LocalDateTime.now();
+		this.fechaTransaccion = LocalDateTime.now();
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class ModelRespuesta {
 	/**
 	 * @return the fecha
 	 */
-	public LocalDateTime getFecha() {
-		return fecha;
+	public LocalDateTime getFechaTransaccion() {
+		return fechaTransaccion;
 	}
 
 }
