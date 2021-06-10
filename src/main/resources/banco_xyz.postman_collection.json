@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "4cb42d27-6098-4e90-a3ce-5e8973d972a1",
+		"name": "banco_xyz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "salud",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8085/health",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertar-cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Jaime Osorio\",\r\n    \"tipoIdentificacion\": \"cedula\",\r\n    \"numeroIdentificacion\": \"1039420420\",\r\n    \"estado\": true,\r\n    \"telefono\": \"3113113131\",\r\n    \"pais\": \"colombia\",\r\n    \"ciudad\": \"pueblorrico\",\r\n    \"direccion\": \"vereda patudal\",\r\n    \"fechaNacimiento\": \"1987-12-15\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8085/cliente/insertar",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"cliente",
+						"insertar"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
