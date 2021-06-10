@@ -10,15 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.poligran.bancoxyz.dominio.ModelRespuesta;
+
 @RestController
 @RequestMapping("/health")
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET })
-public class ControllerSalud {
+public class ControllerSalud extends BaseController {
 
 	@GetMapping
-	public ResponseEntity<String> info() {
+	public ResponseEntity<ModelRespuesta> info() {
 		String data = String.format("success: %s", LocalDateTime.now());
-		return new ResponseEntity<>(data, HttpStatus.OK);
+		return super.respuestaExito(data, HttpStatus.OK, "exito conectividad con el servidor");
 	}
 
 }
