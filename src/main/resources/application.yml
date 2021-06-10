@@ -1,0 +1,8 @@
+server:
+  port: 8085
+spring:
+   datasource:
+    url: jdbc:postgresql://localhost:5432/banco_xyz
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
