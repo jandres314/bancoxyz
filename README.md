@@ -10,7 +10,7 @@ entregable bases de datos transaccionales
 
 # Correr proyecto local
 * ubicarse en ruta limpia
-* cd bancoxyz
 * git clone https://github.com/jandres314/bancoxyz.git
+* cd bancoxyz
 * gradlew build -x test
 * gradlew bootRun
