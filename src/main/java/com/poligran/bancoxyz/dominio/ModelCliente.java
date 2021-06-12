@@ -5,6 +5,7 @@ import java.util.Date;
 
 /**
  * clase que representa la informacion de un cliente
+ * 
  * @author josorio
  *
  */
@@ -16,8 +17,7 @@ public class ModelCliente {
 	private String numeroIdentificacion;
 	private boolean estado;
 	private String telefono;
-	private String pais;
-	private String ciudad;
+	private long ciudad;
 	private String direccion;
 	private Date fechaNacimiento;
 	private Timestamp fechaCreacion;
@@ -107,34 +107,6 @@ public class ModelCliente {
 	}
 
 	/**
-	 * @return the pais
-	 */
-	public String getPais() {
-		return pais;
-	}
-
-	/**
-	 * @param pais the pais to set
-	 */
-	public void setPais(String pais) {
-		this.pais = pais;
-	}
-
-	/**
-	 * @return the ciudad
-	 */
-	public String getCiudad() {
-		return ciudad;
-	}
-
-	/**
-	 * @param ciudad the ciudad to set
-	 */
-	public void setCiudad(String ciudad) {
-		this.ciudad = ciudad;
-	}
-
-	/**
 	 * @return the direccion
 	 */
 	public String getDireccion() {
@@ -174,6 +146,20 @@ public class ModelCliente {
 	 */
 	public void setFechaCreacion(Timestamp fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
+	}
+
+	/**
+	 * @return the ciudad
+	 */
+	public long getCiudad() {
+		return ciudad;
+	}
+
+	/**
+	 * @param ciudad the ciudad to set
+	 */
+	public void setCiudad(long ciudad) {
+		this.ciudad = ciudad;
 	}
 
 }

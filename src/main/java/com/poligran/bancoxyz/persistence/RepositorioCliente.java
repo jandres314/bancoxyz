@@ -20,11 +20,10 @@ public class RepositorioCliente extends BaseRepositorio {
 	 * @return
 	 */
 	public int insertar(ModelCliente model) {
-		String sql = "insert into clientes (nombre, tipo_identificacion, numero_identificacion, estado, telefono, pais,ciudad, direccion, fecha_nacimiento) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		return super.update(sql, model.getNombre(), model.getTipoIdentificacion(),
-				model.getNumeroIdentificacion(), model.isEstado(), 
-				model.getTelefono(), model.getPais(), model.getCiudad(),
-				model.getDireccion(), model.getFechaNacimiento());
+		String sql = "insert into clientes (nombre, tipo_identificacion, numero_identificacion, estado, telefono, ciudad, direccion, fecha_nacimiento) values(?, ?, ?, ?, ?, ?, ?, ?)";
+		return super.update(sql, model.getNombre(), model.getTipoIdentificacion(), model.getNumeroIdentificacion(),
+				model.isEstado(), model.getTelefono(), model.getCiudad(), model.getDireccion(),
+				model.getFechaNacimiento());
 	}
 
 }
