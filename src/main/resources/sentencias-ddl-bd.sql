@@ -1,20 +1,33 @@
+--database
 create database banco_xyz;
 
--- public.clientes definition
+-- Pais
+CREATE TABLE pais (
+	id serial NOT NULL,
+	nombre varchar NOT null,
+	CONSTRAINT pais_pkey PRIMARY KEY (id)
+);
 
--- Drop table
+-- Ciudad
+CREATE TABLE ciudad (
+	id serial NOT NULL,
+	nombre varchar NOT NULL,
+	pais int NOT NULL,
+	CONSTRAINT ciudad_pkey PRIMARY KEY (id)
+);
 
--- DROP TABLE public.clientes;
 
-CREATE TABLE public.clientes (
+ALTER TABLE ciudad ADD CONSTRAINT pais_fkey FOREIGN KEY (pais) REFERENCES pais(id);
+
+-- clientes
+CREATE TABLE clientes (
 	id serial NOT NULL,
 	nombre varchar NOT NULL,
 	tipo_identificacion varchar NOT NULL,
 	numero_identificacion varchar NOT NULL,
-	estado bool NOT NULL,
+	estado boolean NOT NULL,
 	telefono varchar NULL,
-	pais varchar NULL,
-	ciudad varchar NULL,
+	ciudad int NOT NULL,
 	direccion varchar NULL,
 	fecha_nacimiento date NULL,
 	fecha_creacion timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -22,46 +35,43 @@ CREATE TABLE public.clientes (
 	CONSTRAINT uk_clientes UNIQUE (tipo_identificacion, numero_identificacion)
 );
 
--- public.cuentas definition
+ALTER TABLE clientes ADD CONSTRAINT ciudad_fkey FOREIGN KEY (ciudad) REFERENCES ciudad(id);
 
--- Drop table
-
--- DROP TABLE public.cuentas;
-
-CREATE TABLE public.cuentas (
+-- cuentas
+CREATE TABLE cuentas (
 	id serial NOT NULL,
 	id_cliente int4 NOT NULL,
 	tipo_cuenta varchar NOT NULL,
 	numero_cuenta varchar NOT NULL,
-	saldo numeric NOT NULL,
-	estado bool NOT NULL,
+	saldo decimal NOT NULL,
+	estado boolean NOT NULL,
 	fecha_creacion timestamp NULL DEFAULT CURRENT_TIMESTAMP,
 	CONSTRAINT cuentas_pkey PRIMARY KEY (id),
 	CONSTRAINT uk_cuentas UNIQUE (tipo_cuenta, numero_cuenta)
 );
 
+ALTER TABLE cuentas ADD CONSTRAINT cuentas_fkey FOREIGN KEY (id_cliente) REFERENCES clientes(id);
 
--- public.cuentas foreign keys
 
-ALTER TABLE public.cuentas ADD CONSTRAINT cuentas_fkey FOREIGN KEY (id_cliente) REFERENCES clientes(id);
-
--- public.movimientos definition
-
--- Drop table
-
--- DROP TABLE public.movimientos;
-
-CREATE TABLE public.movimientos (
+-- OperaciÃ³n
+CREATE TABLE operacion (
 	id serial NOT NULL,
-	id_cuenta int4 NOT NULL,
-	monto bool NOT NULL,
-	estado varchar NOT NULL,
-	operacion varchar NOT NULL,
+	nombre varchar NOT null,
+	CONSTRAINT operacion_pkey PRIMARY KEY (id)
+);
+
+-- movimientos
+CREATE TABLE movimientos (
+	id serial NOT NULL,
+	id_cuenta int NOT NULL,
+	monto bigint NOT NULL,
+	estado boolean NOT NULL,
+	operacion int NOT NULL,
 	fecha_transaccion timestamp NULL DEFAULT CURRENT_TIMESTAMP,
 	CONSTRAINT transacciones_pkey PRIMARY KEY (id)
 );
 
+ALTER TABLE movimientos ADD CONSTRAINT movimientos_fkey FOREIGN KEY (id_cuenta) REFERENCES cuentas(id);
+ALTER TABLE movimientos ADD CONSTRAINT operacion_fkey FOREIGN KEY (operacion) REFERENCES operacion(id);
 
--- public.movimientos foreign keys
 
-ALTER TABLE public.movimientos ADD CONSTRAINT movimientos_fkey FOREIGN KEY (id_cuenta) REFERENCES cuentas(id);
