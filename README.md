@@ -2,7 +2,7 @@
 entregable bases de datos transaccionales
 
 # prerrequisitos
-* Eclipse o IDE de elección
+* Eclipse o IDE de elección (opcional)
 * Java 1.8
 * Tener corriendo Pgadmin4 con los scripts ddl ejecutados (ver folder src/main/resources)
 * Git
@@ -10,6 +10,7 @@ entregable bases de datos transaccionales
 
 # Correr proyecto local
 * ubicarse en ruta limpia
+* cd bancoxyz
 * git clone https://github.com/jandres314/bancoxyz.git
 * gradlew build -x test
 * gradlew bootRun

@@ -27,7 +27,7 @@ public class ControllerCliente extends BaseController {
 	private ServicioCliente servicioCliente;
 
 	@PostMapping("insertar")
-	public ResponseEntity<ModelRespuesta> guardarTraza(@RequestBody String json) {
+	public ResponseEntity<ModelRespuesta> guardarCliente(@RequestBody String json) {
 		ModelCliente cliente = gson.fromJson(json, ModelCliente.class);
 		int registrosInsertados = servicioCliente.crearCliente(cliente);
 		return super.respuestaExito(registrosInsertados, HttpStatus.CREATED, "cliente creado");
