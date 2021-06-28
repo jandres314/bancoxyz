@@ -30,7 +30,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"Juan Osorio\",\r\n    \"tipoIdentificacion\": \"cedula\",\r\n    \"numeroIdentificacion\": \"1039420422\",\r\n    \"estado\": true,\r\n    \"telefono\": \"3113113131\",\r\n    \"ciudad\": 1,\r\n    \"direccion\": \"vereda patudal\",\r\n    \"fechaNacimiento\": \"1986-04-10\"\r\n}\r\n",
+					"raw": "{\r\n    \"nombre\": \"Jaime Osorio\",\r\n    \"tipoIdentificacion\": \"cedula\",\r\n    \"numeroIdentificacion\": \"1039420427\",\r\n    \"estado\": true,\r\n    \"telefono\": \"3113113131\",\r\n    \"ciudad\": 1,\r\n    \"direccion\": \"vereda patudal\",\r\n    \"fechaNacimiento\": \"1986-04-10\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -45,6 +45,53 @@
 					"port": "8085",
 					"path": [
 						"cliente",
+						"insertar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "informacion-cuenta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8085/cuentas/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"cuentas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertar-movimiento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCuenta\": 1,\r\n    \"idOperacion\": 1,\r\n    \"monto\": 27000000,\r\n    \"estado\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8085/movimientos/insertar",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"movimientos",
 						"insertar"
 					]
 				}

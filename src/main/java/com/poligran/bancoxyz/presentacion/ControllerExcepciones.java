@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -27,6 +28,16 @@ public class ControllerExcepciones extends BaseController {
 	@ExceptionHandler({ IllegalArgumentException.class })
 	public ResponseEntity<ModelRespuesta> excepcionNegocio(Exception e) {
 		return super.respuestaError(e.getMessage(), "excepcion de negocio", HttpStatus.BAD_REQUEST);
+	}
+
+	/**
+	 * control excepciones de registros no encontrados en base de datos
+	 * @param e
+	 * @return
+	 */
+	@ExceptionHandler({ EmptyResultDataAccessException.class })
+	public ResponseEntity<ModelRespuesta> excepcionNotFound(Exception e) {
+		return super.respuestaError(e.getMessage(), "no se encontraron resultados, favor verificar identificadores de claves foraneas en la petición", HttpStatus.NOT_FOUND);
 	}
 
 	/**

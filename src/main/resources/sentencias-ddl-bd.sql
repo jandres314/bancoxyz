@@ -1,5 +1,5 @@
 --database
-create database banco_xyz;
+-- create database banco_xyz;
 
 -- Pais
 CREATE TABLE pais (
@@ -73,5 +73,27 @@ CREATE TABLE movimientos (
 
 ALTER TABLE movimientos ADD CONSTRAINT movimientos_fkey FOREIGN KEY (id_cuenta) REFERENCES cuentas(id);
 ALTER TABLE movimientos ADD CONSTRAINT operacion_fkey FOREIGN KEY (operacion) REFERENCES operacion(id);
+
+-- plan de pruebas
+-- pais
+INSERT INTO pais (nombre) VALUES('colombia');
+
+-- ciudad
+INSERT INTO ciudad (nombre, pais) VALUES('pueblorrico', 1);
+
+-- cliente
+INSERT INTO clientes
+(nombre, tipo_identificacion, numero_identificacion, estado, telefono, ciudad, direccion, fecha_nacimiento)
+VALUES('Jaime Osorio', 'cedula', '1039420426', true, '3195533013', 1, 'vereda patual', CURRENT_TIMESTAMP);
+
+-- cuenta
+INSERT INTO cuentas
+(id_cliente, tipo_cuenta, numero_cuenta, saldo, estado, fecha_creacion)
+VALUES(1, 'ahorros', '1234567890', 10000000, true, CURRENT_TIMESTAMP);
+
+-- operaciones
+INSERT INTO operacion (nombre) VALUES('retiro');
+INSERT INTO operacion (nombre) VALUES('consignacion');
+
 
 
