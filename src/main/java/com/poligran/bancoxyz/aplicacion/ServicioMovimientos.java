@@ -69,6 +69,8 @@ public class ServicioMovimientos {
 		int saldo = 0;
 		if(operacion.equals("retiro")) {
 			saldo = saldoCuenta - valorTransaccion;
+		} else if(operacion.equals("consignacion")) {
+			saldo = saldoCuenta + valorTransaccion;
 		}
 		return saldo;
 	}
