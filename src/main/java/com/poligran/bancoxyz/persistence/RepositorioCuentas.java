@@ -27,5 +27,15 @@ public class RepositorioCuentas extends BaseRepositorio {
 		String sql = "select * from cuentas where id = ?";
 		return super.consultarRegistro(sql, idCuenta);
 	}
+	
+	/**
+	 * consulta la informacion de una cuenta y el cliente asociado
+	 * @param idCuenta
+	 * @return
+	 */
+	public Map<String, Object> consultarCuentaCliente(int idCuenta) {
+		String sql = "select * from cuentas inner join clientes on cuentas.id_cliente = clientes.id where cuentas.id = ?";
+		return super.consultarRegistro(sql, idCuenta);
+	}
 
 }
