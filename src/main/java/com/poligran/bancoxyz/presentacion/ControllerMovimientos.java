@@ -29,7 +29,7 @@ public class ControllerMovimientos extends BaseController {
 	public ResponseEntity<ModelRespuesta> guardarMovimiento(@RequestBody String json) {
 		ModelMovimiento movimiento = gson.fromJson(json, ModelMovimiento.class);
 		int registrosInsertados = servicioMovimientos.registrarMovimiento(movimiento);
-		return super.respuestaExito(registrosInsertados, HttpStatus.CREATED, "cliente creado");
+		return super.respuestaExito(registrosInsertados, HttpStatus.CREATED, "saldo total cuenta");
 	}
 
 }

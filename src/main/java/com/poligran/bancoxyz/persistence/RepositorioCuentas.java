@@ -14,7 +14,7 @@ public class RepositorioCuentas extends BaseRepositorio {
 	 * @return
 	 */
 	public int actualizarSaldo(int idCuenta, int valor) {
-		String sql = "update";
+		String sql = "update cuentas set saldo = ? where id = ?";
 		return super.update(sql, valor, idCuenta);
 	}
 
@@ -24,7 +24,7 @@ public class RepositorioCuentas extends BaseRepositorio {
 	 * @return
 	 */
 	public Map<String, Object> consultarCuenta(int idCuenta) {
-		String sql = "";
+		String sql = "select * from cuentas where id = ?";
 		return super.consultarRegistro(sql, idCuenta);
 	}
 
